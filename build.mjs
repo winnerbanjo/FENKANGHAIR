@@ -1,5 +1,5 @@
 import { cp, mkdir, readdir, readFile, rm, stat, writeFile } from "node:fs/promises";
-import { extname, join, posix, relative, sep } from "node:path";
+import { join, posix, relative, sep } from "node:path";
 
 const dist = "dist";
 
