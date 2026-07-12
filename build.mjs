@@ -8,12 +8,14 @@ await rm(dist, { force: true, recursive: true });
 await rm(publicDir, { force: true, recursive: true });
 await mkdir(join(dist, "server"), { recursive: true });
 await mkdir(join(dist, "assets"), { recursive: true });
+await mkdir(join(dist, ".openai"), { recursive: true });
 await mkdir(join(publicDir, "assets"), { recursive: true });
 
 await cp("index.html", join(dist, "index.html"));
 await cp("style.css", join(dist, "style.css"));
 await cp("script.js", join(dist, "script.js"));
 await cp("assets", join(dist, "assets"), { recursive: true });
+await cp(join(".openai", "hosting.json"), join(dist, ".openai", "hosting.json"));
 
 await cp("index.html", join(publicDir, "index.html"));
 await cp("style.css", join(publicDir, "style.css"));
@@ -55,6 +57,7 @@ const contentTypes = {
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
   ".png": "image/png",
+  ".mp4": "video/mp4",
   ".webp": "image/webp",
   ".gif": "image/gif",
   ".svg": "image/svg+xml"
