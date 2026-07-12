@@ -2,15 +2,23 @@ import { cp, mkdir, readdir, readFile, rm, stat, writeFile } from "node:fs/promi
 import { join, posix, relative, sep } from "node:path";
 
 const dist = "dist";
+const publicDir = "public";
 
 await rm(dist, { force: true, recursive: true });
+await rm(publicDir, { force: true, recursive: true });
 await mkdir(join(dist, "server"), { recursive: true });
 await mkdir(join(dist, "assets"), { recursive: true });
+await mkdir(join(publicDir, "assets"), { recursive: true });
 
 await cp("index.html", join(dist, "index.html"));
 await cp("style.css", join(dist, "style.css"));
 await cp("script.js", join(dist, "script.js"));
 await cp("assets", join(dist, "assets"), { recursive: true });
+
+await cp("index.html", join(publicDir, "index.html"));
+await cp("style.css", join(publicDir, "style.css"));
+await cp("script.js", join(publicDir, "script.js"));
+await cp("assets", join(publicDir, "assets"), { recursive: true });
 
 async function collectFiles(dir) {
   const entries = await readdir(dir);
