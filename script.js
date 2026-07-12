@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.scrollY > 50) {
       header.classList.add('scrolled');
       header.style.padding = '10px 0';
-      header.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
+      header.style.backgroundColor = 'rgba(255, 255, 255, 0.96)';
     } else {
       header.classList.remove('scrolled');
       header.style.padding = '16px 0';
-      header.style.backgroundColor = 'rgba(10, 10, 10, 0.85)';
+      header.style.backgroundColor = 'rgba(255, 255, 255, 0.92)';
     }
   });
 
